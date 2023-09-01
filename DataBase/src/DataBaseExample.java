@@ -11,22 +11,23 @@ public class DataBaseExample {
         Class.forName("org.postgresql.Driver");
         String url = "jdbc:postgresql://127.0.0.1:5432/postgres";
 
-        org.postgresql.jdbc.PgConnection c;
+       // org.postgresql.jdbc.PgConnection c;
 
         Connection con = DriverManager.getConnection(url, "postgres", "pawel2510");
         Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT \"ID\", \"adress \", \"type_of_work\", \"meters \", \"saler\"\n" +
-                "\tFROM public.\"Builders \";");
+        ResultSet rs  = stmt.executeQuery("SELECT * FROM builders");
+        // ResultSet rs = stmt.executeQuery("SELECT \"id\", \"type_of_work\", \"meters \", \"saler\", \"adress \"n" +
+         //       "\tFROM public.\"Builders \";");
         List<Contact> result = new ArrayList<>();
 
         while (rs.next()){
-            Long id = rs.getLong("id");
-            String adress = rs.getString("adress");
+            Long contactid = rs.getLong("contactId");
             String typeOfWork = rs.getNString("typeOfWork");
             String meters = rs.getNString("meters");
             String saler = rs.getNString("saler");
+            String adress = rs.getString("adress");
 
-            Contact contact = new Contact(id,adress,typeOfWork,meters,saler);
+            Contact contact = new Contact(contactid,adress,typeOfWork,meters,saler);
             result.add(contact);
         }
 
