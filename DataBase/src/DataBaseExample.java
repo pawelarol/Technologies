@@ -13,7 +13,7 @@ public class DataBaseExample {
 
        // org.postgresql.jdbc.PgConnection c;
 
-        Connection con = DriverManager.getConnection(url, "postgres", "pawel2510");
+        Connection con = DriverManager.getConnection(url, "postgres2", "pawel2510");
         Statement stmt = con.createStatement();
         ResultSet rs  = stmt.executeQuery("SELECT * FROM builders");
         // ResultSet rs = stmt.executeQuery("SELECT \"id\", \"type_of_work\", \"meters \", \"saler\", \"adress \"n" +
