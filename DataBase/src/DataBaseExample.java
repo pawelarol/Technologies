@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,31 +6,29 @@ public class DataBaseExample {
     public static void main(String[] args) throws Exception {
 
         Class.forName("org.postgresql.Driver");
-        String url = "jdbc:postgresql://127.0.0.1:5432/postgres";
+        String url = "jdbc:postgresql://localhost:5432/Example?currentSchema=public";
 
-       // org.postgresql.jdbc.PgConnection c;
+        // org.postgresql.jdbc.PgConnection c;
 
-        Connection con = DriverManager.getConnection(url, "postgres2", "pawel2510");
+        Connection con = DriverManager.getConnection(url, "postgres", "pawel2510");
         Statement stmt = con.createStatement();
-        ResultSet rs  = stmt.executeQuery("SELECT * FROM builders");
-        // ResultSet rs = stmt.executeQuery("SELECT \"id\", \"type_of_work\", \"meters \", \"saler\", \"adress \"n" +
-         //       "\tFROM public.\"Builders \";");
-        List<Contact> result = new ArrayList<>();
+        ResultSet rs = stmt.executeQuery("SELECT id_contact, name_contact, gender, city FROM first");
+        List<Person> result = new ArrayList<>();
 
-        while (rs.next()){
-            Long contactid = rs.getLong("contactId");
-            String typeOfWork = rs.getNString("typeOfWork");
-            String meters = rs.getNString("meters");
-            String saler = rs.getNString("saler");
-            String adress = rs.getString("adress");
+        while (rs.next()) {
+            Long id = rs.getLong("id_contact");
+            String name = rs.getString("name_contact");
+            String gender = rs.getString("gender");
+            String city = rs.getString("city");
 
-            Contact contact = new Contact(contactid,adress,typeOfWork,meters,saler);
-            result.add(contact);
+            Person person = new Person(id,name,gender,city);
+            result.add(person);
         }
 
-        for (Contact cnt : result){
-            System.out.println(cnt);
+        for (Person p : result) {
+            System.out.println(p);
         }
+
 
     }
 }

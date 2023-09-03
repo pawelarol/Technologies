@@ -1,7 +1,7 @@
 public class Contact {
     private    Long id ;
     private   String adress ;
-    private String typeOfWork;
+    private String type_Of_Work;
     private   String meters;
     private   String saler;
 
@@ -9,10 +9,10 @@ public class Contact {
 
     }
 
-    public Contact(Long id, String adress, String typeOfWork, String meters, String saler) {
+    public Contact(Long id, String adress, String type_Of_Work, String meters, String saler) {
         this.id = id;
         this.adress = adress;
-        this.typeOfWork = typeOfWork;
+        this.type_Of_Work = type_Of_Work;
         this.meters = meters;
         this.saler = saler;
     }
@@ -25,12 +25,12 @@ public class Contact {
         this.adress = adress;
     }
 
-    public String getTypeOfWork() {
-        return typeOfWork;
+    public String getType_Of_Work() {
+        return type_Of_Work;
     }
 
-    public void setTypeOfWork(String typeOfWork) {
-        this.typeOfWork = typeOfWork;
+    public void setType_Of_Work(String type_Of_Work) {
+        this.type_Of_Work = type_Of_Work;
     }
 
     public Long getId() {
@@ -63,7 +63,7 @@ public class Contact {
         return "Contact{" +
                 "id=" + id +
                ", adress='" + adress + '\'' +
-                ", typeOfWork='" + typeOfWork + '\'' +
+                ", typeOfWork='" + type_Of_Work + '\'' +
                 ", meters='" + meters + '\'' +
                 ", saler='" + saler + '\'' +
                 '}';
