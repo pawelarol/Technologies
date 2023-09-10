@@ -1,5 +1,5 @@
 public class Contact {
-    private    Long id ;
+    private    int contact_id;
     private   String adress ;
     private String type_Of_Work;
     private   String meters;
@@ -9,8 +9,8 @@ public class Contact {
 
     }
 
-    public Contact(Long id, String adress, String type_Of_Work, String meters, String saler) {
-        this.id = id;
+    public Contact( int contact_id, String adress, String type_Of_Work, String meters, String saler) {
+        this.contact_id = contact_id;
         this.adress = adress;
         this.type_Of_Work = type_Of_Work;
         this.meters = meters;
@@ -33,12 +33,12 @@ public class Contact {
         this.type_Of_Work = type_Of_Work;
     }
 
-    public Long getId() {
-        return id;
+    public int getContact_id() {
+        return contact_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setContact_id(int contact_id) {
+        this.contact_id = contact_id;
     }
 
 
@@ -61,7 +61,7 @@ public class Contact {
     @Override
     public String toString() {
         return "Contact{" +
-                "id=" + id +
+                "id=" + contact_id +
                ", adress='" + adress + '\'' +
                 ", typeOfWork='" + type_Of_Work + '\'' +
                 ", meters='" + meters + '\'' +

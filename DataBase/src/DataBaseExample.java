@@ -1,3 +1,5 @@
+import org.postgresql.core.SqlCommand;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,6 @@ public class DataBaseExample {
                     System.out.println(p);
                 }
             }
-
         } finally {
             if (rs != null) {
                 rs.close();
@@ -38,6 +39,9 @@ public class DataBaseExample {
             }
             con.close();
         }
-        }
+
     }
+
+}
+
 
