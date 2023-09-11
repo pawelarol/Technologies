@@ -14,6 +14,7 @@ public class InsertDatabase {
             PreparedStatement stmt = null;
 
             try {
+                con.setAutoCommit(false);
                 stmt = con.prepareStatement("INSERT INTO builders" +
                         "(contact_id, type_of_work, meters, saler, adress) values (?,?,?,?,?)");
                  stmt.setInt(1, contact.getContact_id());
@@ -22,6 +23,7 @@ public class InsertDatabase {
                 stmt.setString(4, contact.getSaler());
                 stmt.setString(5, contact.getAdress());
                 stmt.executeUpdate();
+                con.rollback();
             } finally {
                 if (stmt != null) {
                     stmt.close();
