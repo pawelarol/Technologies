@@ -26,7 +26,7 @@ public class InsertDatabase {
                 con.rollback();
             } finally {
                 if (stmt != null) {
-                    stmt.close();
+                    closeStmt(stmt);
                 }
                 con.close();
             }
@@ -35,4 +35,9 @@ public class InsertDatabase {
 
         }
     }
+
+    public static void closeStmt(Statement stmt ) throws SQLException {
+        stmt.close();
+    }
+
 }

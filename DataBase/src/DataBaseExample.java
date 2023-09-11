@@ -32,15 +32,25 @@ public class DataBaseExample {
             }
         } finally {
             if (rs != null) {
-                rs.close();
+                closeRs(rs);
             }
             if (stmt != null) {
-                stmt.close();
+                closeStmt(stmt);
             }
             con.close();
         }
 
+
     }
+
+    public static void closeRs(ResultSet rs) throws SQLException {
+        rs.close();
+    }
+    public static void closeStmt(Statement stmt ) throws SQLException {
+        stmt.close();
+    }
+
+
 
 }
 
